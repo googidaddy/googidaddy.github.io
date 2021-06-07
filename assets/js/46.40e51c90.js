@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[46],{531:function(t,n,s){"use strict";s.r(n);var e=s(4),o=Object(e.a)({},(function(){var t=this.$createElement,n=this._self._c||t;return n("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[n("p",[n("strong",[this._v("广泛撒网捕捉前端内容")])])])}),[],!1,null,null,null);n.default=o.exports}}]);
