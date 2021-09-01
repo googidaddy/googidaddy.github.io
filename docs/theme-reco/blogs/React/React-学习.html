@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Stateful component【有状态组件】 | domado</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="xxx">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.ad10b193.css" as="style"><link rel="preload" href="/assets/js/app.f4adc8b6.js" as="script"><link rel="preload" href="/assets/js/3.d560811f.js" as="script"><link rel="preload" href="/assets/js/1.1a97de3d.js" as="script"><link rel="preload" href="/assets/js/56.95792034.js" as="script"><link rel="prefetch" href="/assets/js/10.5f87cbcc.js"><link rel="prefetch" href="/assets/js/100.dacf1293.js"><link rel="prefetch" href="/assets/js/101.75d2cba0.js"><link rel="prefetch" href="/assets/js/102.855c1b7a.js"><link rel="prefetch" href="/assets/js/103.10c7534d.js"><link rel="prefetch" href="/assets/js/104.f5407dfd.js"><link rel="prefetch" href="/assets/js/105.ea9def25.js"><link rel="prefetch" href="/assets/js/106.09380985.js"><link rel="prefetch" href="/assets/js/107.42fec2c6.js"><link rel="prefetch" href="/assets/js/108.62b19f49.js"><link rel="prefetch" href="/assets/js/109.e6d4dbd4.js"><link rel="prefetch" href="/assets/js/11.dfe0d821.js"><link rel="prefetch" href="/assets/js/110.b8941118.js"><link rel="prefetch" href="/assets/js/111.ea766fe5.js"><link rel="prefetch" href="/assets/js/112.23b79600.js"><link rel="prefetch" href="/assets/js/113.3bb675ab.js"><link rel="prefetch" href="/assets/js/114.f1bba98c.js"><link rel="prefetch" href="/assets/js/115.f00986d3.js"><link rel="prefetch" href="/assets/js/116.29a816be.js"><link rel="prefetch" href="/assets/js/117.f60aec79.js"><link rel="prefetch" href="/assets/js/118.01363d44.js"><link rel="prefetch" href="/assets/js/119.b0acfe77.js"><link rel="prefetch" href="/assets/js/12.6754c895.js"><link rel="prefetch" href="/assets/js/120.0c38056c.js"><link rel="prefetch" href="/assets/js/121.2990ebc3.js"><link rel="prefetch" href="/assets/js/122.8744a1c7.js"><link rel="prefetch" href="/assets/js/123.eff5f2ef.js"><link rel="prefetch" href="/assets/js/124.ed044b44.js"><link rel="prefetch" href="/assets/js/125.f7f294a6.js"><link rel="prefetch" href="/assets/js/13.0afd6492.js"><link rel="prefetch" href="/assets/js/14.27c1e4d3.js"><link rel="prefetch" href="/assets/js/15.e26684bf.js"><link rel="prefetch" href="/assets/js/16.cabe0585.js"><link rel="prefetch" href="/assets/js/17.7a1cec5e.js"><link rel="prefetch" href="/assets/js/18.c37cfb8a.js"><link rel="prefetch" href="/assets/js/19.10dc84bc.js"><link rel="prefetch" href="/assets/js/20.d6ea1f39.js"><link rel="prefetch" href="/assets/js/21.41246f7a.js"><link rel="prefetch" href="/assets/js/22.d699afe8.js"><link rel="prefetch" href="/assets/js/23.3ad73e74.js"><link rel="prefetch" href="/assets/js/24.15fc495e.js"><link rel="prefetch" href="/assets/js/25.5fd3c58f.js"><link rel="prefetch" href="/assets/js/26.a7296f6b.js"><link rel="prefetch" href="/assets/js/27.8019c14b.js"><link rel="prefetch" href="/assets/js/28.cea48914.js"><link rel="prefetch" href="/assets/js/29.98c22e67.js"><link rel="prefetch" href="/assets/js/30.0a55ccf4.js"><link rel="prefetch" href="/assets/js/31.aba27e66.js"><link rel="prefetch" href="/assets/js/32.fe46cc4c.js"><link rel="prefetch" href="/assets/js/33.b222fe03.js"><link rel="prefetch" href="/assets/js/34.39395b1e.js"><link rel="prefetch" href="/assets/js/35.def9e534.js"><link rel="prefetch" href="/assets/js/36.840846ce.js"><link rel="prefetch" href="/assets/js/37.c487b34c.js"><link rel="prefetch" href="/assets/js/38.e7b7a898.js"><link rel="prefetch" href="/assets/js/39.5aa92f41.js"><link rel="prefetch" href="/assets/js/4.0c408d12.js"><link rel="prefetch" href="/assets/js/40.6b2f65c6.js"><link rel="prefetch" href="/assets/js/41.a098f158.js"><link rel="prefetch" href="/assets/js/42.ed01983e.js"><link rel="prefetch" href="/assets/js/43.53d00d5b.js"><link rel="prefetch" href="/assets/js/44.f464284b.js"><link rel="prefetch" href="/assets/js/45.b9c14586.js"><link rel="prefetch" href="/assets/js/46.4219727f.js"><link rel="prefetch" href="/assets/js/47.4b61469c.js"><link rel="prefetch" href="/assets/js/48.6bebe224.js"><link rel="prefetch" href="/assets/js/49.680540d1.js"><link rel="prefetch" href="/assets/js/5.7bdc86e5.js"><link rel="prefetch" href="/assets/js/50.db26b2f7.js"><link rel="prefetch" href="/assets/js/51.aacbc862.js"><link rel="prefetch" href="/assets/js/52.beb820e4.js"><link rel="prefetch" href="/assets/js/53.6c15813b.js"><link rel="prefetch" href="/assets/js/54.9b94ed16.js"><link rel="prefetch" href="/assets/js/55.29bd2676.js"><link rel="prefetch" href="/assets/js/57.9aacd8e9.js"><link rel="prefetch" href="/assets/js/58.e8884935.js"><link rel="prefetch" href="/assets/js/59.fb49d95b.js"><link rel="prefetch" href="/assets/js/6.a7a548f5.js"><link rel="prefetch" href="/assets/js/60.5cd5cf9e.js"><link rel="prefetch" href="/assets/js/61.ef98bbd2.js"><link rel="prefetch" href="/assets/js/62.addf4481.js"><link rel="prefetch" href="/assets/js/63.f106daae.js"><link rel="prefetch" href="/assets/js/64.df5fc390.js"><link rel="prefetch" href="/assets/js/65.249ed716.js"><link rel="prefetch" href="/assets/js/66.d89df22c.js"><link rel="prefetch" href="/assets/js/67.2cdfd850.js"><link rel="prefetch" href="/assets/js/68.ee2eda0c.js"><link rel="prefetch" href="/assets/js/69.243651fa.js"><link rel="prefetch" href="/assets/js/7.305611b8.js"><link rel="prefetch" href="/assets/js/70.1b494224.js"><link rel="prefetch" href="/assets/js/71.8b6bffdc.js"><link rel="prefetch" href="/assets/js/72.f856373f.js"><link rel="prefetch" href="/assets/js/73.117c9092.js"><link rel="prefetch" href="/assets/js/74.545f33de.js"><link rel="prefetch" href="/assets/js/75.06427831.js"><link rel="prefetch" href="/assets/js/76.e07787d7.js"><link rel="prefetch" href="/assets/js/77.046d31e0.js"><link rel="prefetch" href="/assets/js/78.12409ff0.js"><link rel="prefetch" href="/assets/js/79.04420203.js"><link rel="prefetch" href="/assets/js/8.7d556cf3.js"><link rel="prefetch" href="/assets/js/80.1751dc80.js"><link rel="prefetch" href="/assets/js/81.d4e8c3d9.js"><link rel="prefetch" href="/assets/js/82.2e36d430.js"><link rel="prefetch" href="/assets/js/83.333df718.js"><link rel="prefetch" href="/assets/js/84.c85563fd.js"><link rel="prefetch" href="/assets/js/85.32486647.js"><link rel="prefetch" href="/assets/js/86.fff763bc.js"><link rel="prefetch" href="/assets/js/87.6f8640f1.js"><link rel="prefetch" href="/assets/js/88.6a4f6fcf.js"><link rel="prefetch" href="/assets/js/89.4f35e493.js"><link rel="prefetch" href="/assets/js/9.8acebc6e.js"><link rel="prefetch" href="/assets/js/90.20ba5108.js"><link rel="prefetch" href="/assets/js/91.ff8015cc.js"><link rel="prefetch" href="/assets/js/92.33bd119d.js"><link rel="prefetch" href="/assets/js/93.e50aa554.js"><link rel="prefetch" href="/assets/js/94.f921554a.js"><link rel="prefetch" href="/assets/js/95.76ebbbeb.js"><link rel="prefetch" href="/assets/js/96.87842c4a.js"><link rel="prefetch" href="/assets/js/97.873d2ebc.js"><link rel="prefetch" href="/assets/js/98.5ff53e1d.js"><link rel="prefetch" href="/assets/js/99.7ff8c84d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ad10b193.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>domado</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>sicko</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/3.ico" alt="domado" class="logo"> <span class="site-name">domado</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  最近
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/front/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Algorithm/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Python/" class="nav-link"><i class="iconfont undefined"></i>
+  Python
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Network/" class="nav-link"><i class="iconfont undefined"></i>
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/C++/" class="nav-link"><i class="iconfont undefined"></i>
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/notes/" class="nav-link"><i class="iconfont undefined"></i>
+  notes
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/tech/" class="nav-link"><i class="iconfont undefined"></i>
+  技术
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Vue3/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Golang/" class="nav-link"><i class="iconfont undefined"></i>
+  Golang
+</a></li></ul></div></div><div class="nav-item"><a href="/others/" class="nav-link"><i class="iconfont reco-other"></i>
+  杂聊
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-github"></i>
+      联系
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/googidaddy" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://ibb.co/ZJmPFWs" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  Wechat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://potofu.me/sicko" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-three"></i>
+  Card
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/donate/" class="nav-link"><i class="iconfont undefined"></i>
+  donation
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      Languages
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/React/React-学习.html" class="nav-link"><i class="iconfont undefined"></i>
+  zh-CN
+</a></li><li class="dropdown-item"><!----> <a href="/en/" class="nav-link"><i class="iconfont undefined"></i>
+  en-US
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/01.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    sicko
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>56</h3> <h6 data-v-ca798c94>文章</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>54</h3> <h6 data-v-ca798c94>标签</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  最近
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      文档
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/front/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Algorithm/" class="nav-link"><i class="iconfont undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Python/" class="nav-link"><i class="iconfont undefined"></i>
+  Python
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Network/" class="nav-link"><i class="iconfont undefined"></i>
+  Network
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/C++/" class="nav-link"><i class="iconfont undefined"></i>
+  C++
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/notes/" class="nav-link"><i class="iconfont undefined"></i>
+  notes
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/tech/" class="nav-link"><i class="iconfont undefined"></i>
+  技术
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Vue3/" class="nav-link"><i class="iconfont undefined"></i>
+  Vue3
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/JavaScript/" class="nav-link"><i class="iconfont undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/Golang/" class="nav-link"><i class="iconfont undefined"></i>
+  Golang
+</a></li></ul></div></div><div class="nav-item"><a href="/others/" class="nav-link"><i class="iconfont reco-other"></i>
+  杂聊
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-github"></i>
+      联系
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/googidaddy" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://ibb.co/ZJmPFWs" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  Wechat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://potofu.me/sicko" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-three"></i>
+  Card
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/donate/" class="nav-link"><i class="iconfont undefined"></i>
+  donation
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      Languages
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/blogs/React/React-学习.html" class="nav-link"><i class="iconfont undefined"></i>
+  zh-CN
+</a></li><li class="dropdown-item"><!----> <a href="/en/" class="nav-link"><i class="iconfont undefined"></i>
+  en-US
+</a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>sicko</span>
+            
+          <span data-v-64685f0e>2017 - </span>
+          2021
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">Stateful component【有状态组件】</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>sicko</span></i> <!----> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/docs/theme-reco/blogs/React/React-%E5%AD%A6%E4%B9%A0.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h3 id="stateful-component【有状态组件】"><a href="#stateful-component【有状态组件】" class="header-anchor">#</a> Stateful component【有状态组件】</h3> <div class="language-react line-numbers-mode"><pre class="language-text"><code>import React, { useState } from 'react'
+// 解构赋值
+const [ counter, setCounter ] = useState(0)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><blockquote><p><em>counter</em> 变量被赋予的初始值<em>state</em> 为零。 变量 setCounter 被分配给一个函数，该函数将用于<em>修改 state</em>。</p></blockquote> <p><code>setCounter</code>被调用时，React重新渲染这个组件</p> <h2 id="effect-hooks"><a href="#effect-hooks" class="header-anchor">#</a> Effect-hooks</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React,{useState,useEffect} from 'react'
+import axios from 'axios'
+const hook = () =&gt; {
+  console.log('effect')
+  axios
+    .get('http://localhost:3001/notes')
+    .then(response =&gt; {
+      console.log('promise fulfilled')
+      setNotes(response.data)
+    })
+}
+
+useEffect(hook, [])
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p><strong><code>useEffect</code>有两个参数，第一个是函数本身，默认情况下effect总是在组件渲染之后才运行。第二个是运行频率，如果是一个空数组，那么只在组件第一次渲染时运行。</strong></p> <h3 id="react-trick"><a href="#react-trick" class="header-anchor">#</a> React trick</h3> <div class="language-react line-numbers-mode"><pre class="language-text"><code>{
+  user === null &amp;&amp; loginForm()
+}
+// 按条件渲染
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="redux"><a href="#redux" class="header-anchor">#</a> Redux</h3> <p>Redux与<code>Flux</code>架构原理相同</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm install redux
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="https://facebook.github.io/flux/img/overview/flux-simple-f8-diagram-explained-1300w.png" alt="123"></p> <p><strong>通过Action驱动Store改变，从而视图更新</strong></p> <div class="language-react line-numbers-mode"><pre class="language-text"><code>// 简单的例子
+import {createStore} from 'redux'
+
+// Reducer
+const counterReducer = (state =0,action)=&gt;{
+    switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    case 'ZERO':
+      return 0
+    default: // if none of the above matches, code comes here
+    return state
+}
+}
+// Reducer不应该直接从应用程序中调用，只作为创建store
+const store = createStore(counterReducer)
+
+// store使用reducer来处理Action,通过dispatch分发到store
+console.log(store.getState())
+store.dispatch({type: 'INCREMENT'})
+store.dispatch({type: 'INCREMENT'})
+store.dispatch({type: 'INCREMENT'})
+console.log(store.getState())
+store.dispatch({type: 'ZERO'})
+store.dispatch({type: 'DECREMENT'})
+console.log(store.getState())
+
+// store第三个方法是订阅
+store.subscribe(()=&gt;{
+    const storeNow = store.getState()
+    console.log(storeNow)
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p><strong>制作一个计数工具，可以直接在<code>create-react-app</code>里的<code>index.js</code>中使用</strong></p> <div class="language-react line-numbers-mode"><pre class="language-text"><code>import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+
+// reducer
+const counterReducer = (state = 0, action) =&gt; {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    case 'ZERO':
+      return 0
+    default:
+      return state
+  }
+}
+
+// reducer创建store
+const store = createStore(counterReducer)
+
+const App = () =&gt; {
+  return (
+    &lt;div&gt;
+      &lt;div&gt;
+        {store.getState()}
+      &lt;/div&gt;
+      &lt;button 
+        onClick={e =&gt; store.dispatch({ type: 'INCREMENT' })}
+      &gt;
+        plus
+      &lt;/button&gt;
+      &lt;button
+        onClick={e =&gt; store.dispatch({ type: 'DECREMENT' })}
+      &gt;
+        minus
+      &lt;/button&gt;
+      &lt;button 
+        onClick={e =&gt; store.dispatch({ type: 'ZERO' })}
+      &gt;
+        zero
+      &lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+const renderApp = () =&gt; {
+  ReactDOM.render(&lt;App /&gt;, document.getElementById('root'))
+}
+
+renderApp()
+// 订阅
+store.subscribe(renderApp)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><p><strong>比较重要的一点是redux中的状态更改必须不改变旧对象，而是新建一个对象...</strong></p> <div class="language-react line-numbers-mode"><pre class="language-text"><code>state.push(['1']) // 这个不行，如果状态改变，旧对象也会被改变
+state.concat(['1']) // yes!
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.f4adc8b6.js" defer></script><script src="/assets/js/3.d560811f.js" defer></script><script src="/assets/js/1.1a97de3d.js" defer></script><script src="/assets/js/56.95792034.js" defer></script>
+  </body>
+</html>
