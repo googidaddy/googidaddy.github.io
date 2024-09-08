@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="只想搞点薯条">
+    <meta name="author" content="sicko">
+    
+    <title>
+        
+            用Serv00搭建哪吒面板 |
+        
+        sicko&#39;s blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/googidaddy/img/master/2023/mcdonalds.svg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/font/css/regular.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/font/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"googidaddy-github-io.vercel.app","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"sicko's blog","author":"sicko","avatar":"https://raw.githubusercontent.com/googidaddy/img/master/2023/mcdonalds.svg","logo":"https://raw.githubusercontent.com/googidaddy/img/master/2023/mcdonalds.svg","favicon":"https://raw.githubusercontent.com/googidaddy/img/master/2023/mcdonalds.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories"},"first_screen":{"enable":true,"background_img":"https://raw.githubusercontent.com/googidaddy/img/master/2023/bg.jpg","background_img_dark":"https://raw.githubusercontent.com/googidaddy/img/master/2023/bg.jpg","description":null,"hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/googidaddy","weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":"https://x.com/sicko1111_","facebook":null,"email":"sickoqaq@gmail.com"}},"scroll":{"progress_bar":false,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":true,"reward":{"enable":false,"img_link":null,"text":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2024,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":"https://ouvg.top"},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.2"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="asdasd" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://raw.githubusercontent.com/googidaddy/img/master/2023/mcdonalds.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               sicko&#39;s blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                标签
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            标签
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        用Serv00搭建哪吒面板
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://raw.githubusercontent.com/googidaddy/img/master/2023/mcdonalds.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">sicko</span>
+                                
+                                    <span class="author-badge">Lv1</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-09-09 11:40:36</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Mon Sep 09 2024 00:48:08 GMT+0800">2024-09-09 00:48:08</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/vps/">vps</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Serv00/">Serv00</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%93%AA%E5%90%92/">哪吒</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/nezha/">nezha</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>498 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="需要条件"><a href="#需要条件" class="headerlink" title="需要条件"></a>需要条件</h2><ol>
+<li>有自己的域名</li>
+<li>能连接serv00 ssh</li>
+<li>github 创建 OAuth应用</li>
+<li>跟着教程复制粘贴，成功率99</li>
+</ol>
+<h2 id="github-创建OAuth应用"><a href="#github-创建OAuth应用" class="headerlink" title="github 创建OAuth应用"></a>github 创建OAuth应用</h2><p><a class="link"   target="_blank" rel="noopener" href="https://nezha.wiki/guide/dashboard.html#%E8%8E%B7%E5%8F%96-github-%E7%9A%84-client-id-%E5%92%8C%E5%AF%86%E9%92%A5" >参考哪吒官方github获取client ID和client secret教程<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="Serv00-配置"><a href="#Serv00-配置" class="headerlink" title="Serv00 配置"></a>Serv00 配置</h1><h2 id="1-在Serv00-Panel-如下图确保设置为【Enabled】"><a href="#1-在Serv00-Panel-如下图确保设置为【Enabled】" class="headerlink" title="1. 在Serv00 Panel 如下图确保设置为【Enabled】"></a>1. 在Serv00 Panel 如下图确保设置为【Enabled】</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004430.png"
+                        alt="z"
+                 ></p>
+<h2 id="2-在Serv00-Panel-如下图添加两个端口例如：【端口1】【端口2-RPC端口-】"><a href="#2-在Serv00-Panel-如下图添加两个端口例如：【端口1】【端口2-RPC端口-】" class="headerlink" title="2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】"></a>2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004528.png"
+                        alt="xc"
+                 ></p>
+<h2 id="3-添加自己域名DNS-解析为-Serv00-IP-地址"><a href="#3-添加自己域名DNS-解析为-Serv00-IP-地址" class="headerlink" title="3. 添加自己域名DNS 解析为 Serv00 IP 地址"></a>3. 添加自己域名DNS 解析为 Serv00 IP 地址</h2><p>在Serv00 Panel 如下图查看Serv00 IP 地址<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004544.png"
+                        alt="cc"
+                 ><br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004554.png"
+                        alt="cd"
+                 ></p>
+<h3 id="在自己的域名管理页，添加DNS解析，如下图是CF界面"><a href="#在自己的域名管理页，添加DNS解析，如下图是CF界面" class="headerlink" title="在自己的域名管理页，添加DNS解析，如下图是CF界面"></a>在自己的域名管理页，添加DNS解析，如下图是CF界面</h3><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004607.png"
+                        alt="csd"
+                 ></p>
+<h2 id="4-在Serv00-Panel-如下图添加上面域名-【任意写-填serv00的ip地址】"><a href="#4-在Serv00-Panel-如下图添加上面域名-【任意写-填serv00的ip地址】" class="headerlink" title="4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】"></a>4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004616.png"
+                        alt="cas"
+                 ><br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004624.png"
+                        alt="zxc"
+                 ></p>
+<h2 id="5-连接Serv00-ssh-安装-go、pm2"><a href="#5-连接Serv00-ssh-安装-go、pm2" class="headerlink" title="5. 连接Serv00 ssh 安装 go、pm2"></a>5. 连接Serv00 ssh 安装 go、pm2</h2><p>以下脚本、代码均来源：<a class="link"   target="_blank" rel="noopener" href="https://github.com/k0baya" >k0baya<i class="fas fa-external-link-alt"></i></a><br>安装PM2:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)</span><br></pre></td></tr></table></figure>
+
+<p>安装GO：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建安装目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/local/soft &amp;&amp; <span class="built_in">cd</span> ~/local/soft</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载编译好的 go1.22 的程序包</span></span><br><span class="line">wget https://dl.google.com/go/go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除压缩文件</span></span><br><span class="line"><span class="built_in">rm</span> go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 .profile 文件</span></span><br><span class="line"><span class="built_in">echo</span> ‘<span class="built_in">export</span> PATH=~/local/soft/go/bin:<span class="variable">$PATH</span>’ &gt;&gt; ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使 .profile 的修改生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 go 版本</span></span><br><span class="line">go version</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-安装nezha面板并添加监控"><a href="#6-安装nezha面板并添加监控" class="headerlink" title="6. 安装nezha面板并添加监控"></a>6. 安装nezha面板并添加监控</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/nezha4serv00/main/install-dashboard.sh)</span><br></pre></td></tr></table></figure>
+
+<p>按照提示输入：【注】Panel面板端口填写端口1; RPC端口填写端口2<br>准备好之后，回车即可，进入域名网页登录<br>github登录面板</p>
+<ol>
+<li>右上角【用户名】-【管理后台】-【设置】-【未接入CDN的面板服务器域名&#x2F;IP】填入自己的域名</li>
+<li>【管理后台】- 【服务器】- 【新增服务器】- 【一键添加监控】</li>
+</ol>
+<h2 id="安装nezha-Agent-监控Serv00"><a href="#安装nezha-Agent-监控Serv00" class="headerlink" title="安装nezha-Agent 监控Serv00"></a>安装nezha-Agent 监控Serv00</h2><p><strong>按文字提示输入域名、端口2(RPC端口)、刚复制的密钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/nezha4serv00/main/install-agent.sh)</span><br></pre></td></tr></table></figure>
+
+<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004634.png"
+                        alt="zxczxc"
+                 ><br><strong>失败了，不想干了，用下面卸载命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除面板</span></span><br><span class="line"><span class="built_in">rm</span> rf ~/.nezha-dashboard</span><br><span class="line"><span class="comment"># 删除agent</span></span><br><span class="line"><span class="built_in">rm</span> -rf ~/.nezha-agent </span><br><span class="line"><span class="comment"># 功德+1</span></span><br><span class="line">killall -u $(<span class="built_in">whoami</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                用Serv00搭建哪吒面板
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/09/09/Serv00-Nezha/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    作者
+                </div>
+                <div class="content">sicko</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    发布于
+                </div>
+                <div class="content">2024-09-09 11:40</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    许可
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="复制版权信息" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Serv00/">Serv00</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%93%AA%E5%90%92/">哪吒</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/nezha/">nezha</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-text">需要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-%E5%88%9B%E5%BB%BAOAuth%E5%BA%94%E7%94%A8"><span class="nav-text">github 创建OAuth应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Serv00-%E9%85%8D%E7%BD%AE"><span class="nav-text">Serv00 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8Serv00-Panel-%E5%A6%82%E4%B8%8B%E5%9B%BE%E7%A1%AE%E4%BF%9D%E8%AE%BE%E7%BD%AE%E4%B8%BA%E3%80%90Enabled%E3%80%91"><span class="nav-text">1. 在Serv00 Panel 如下图确保设置为【Enabled】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9C%A8Serv00-Panel-%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%B7%BB%E5%8A%A0%E4%B8%A4%E4%B8%AA%E7%AB%AF%E5%8F%A3%E4%BE%8B%E5%A6%82%EF%BC%9A%E3%80%90%E7%AB%AF%E5%8F%A31%E3%80%91%E3%80%90%E7%AB%AF%E5%8F%A32-RPC%E7%AB%AF%E5%8F%A3-%E3%80%91"><span class="nav-text">2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E5%9F%9F%E5%90%8DDNS-%E8%A7%A3%E6%9E%90%E4%B8%BA-Serv00-IP-%E5%9C%B0%E5%9D%80"><span class="nav-text">3. 添加自己域名DNS 解析为 Serv00 IP 地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86%E9%A1%B5%EF%BC%8C%E6%B7%BB%E5%8A%A0DNS%E8%A7%A3%E6%9E%90%EF%BC%8C%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%98%AFCF%E7%95%8C%E9%9D%A2"><span class="nav-text">在自己的域名管理页，添加DNS解析，如下图是CF界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9C%A8Serv00-Panel-%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%B7%BB%E5%8A%A0%E4%B8%8A%E9%9D%A2%E5%9F%9F%E5%90%8D-%E3%80%90%E4%BB%BB%E6%84%8F%E5%86%99-%E5%A1%ABserv00%E7%9A%84ip%E5%9C%B0%E5%9D%80%E3%80%91"><span class="nav-text">4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%BF%9E%E6%8E%A5Serv00-ssh-%E5%AE%89%E8%A3%85-go%E3%80%81pm2"><span class="nav-text">5. 连接Serv00 ssh 安装 go、pm2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%AE%89%E8%A3%85nezha%E9%9D%A2%E6%9D%BF%E5%B9%B6%E6%B7%BB%E5%8A%A0%E7%9B%91%E6%8E%A7"><span class="nav-text">6. 安装nezha面板并添加监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nezha-Agent-%E7%9B%91%E6%8E%A7Serv00"><span class="nav-text">安装nezha-Agent 监控Serv00</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90"><span class="nav-text">大功告成</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2024</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">sicko</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+                <a target="_blank" rel="nofollow" href="https://ouvg.top">
+            
+            本站由 <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span> 提供部署服务
+            
+                </a>
+            
+        </div>
+    
+
+    
+        <div class="count-info info-item">
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-text">需要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-%E5%88%9B%E5%BB%BAOAuth%E5%BA%94%E7%94%A8"><span class="nav-text">github 创建OAuth应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Serv00-%E9%85%8D%E7%BD%AE"><span class="nav-text">Serv00 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8Serv00-Panel-%E5%A6%82%E4%B8%8B%E5%9B%BE%E7%A1%AE%E4%BF%9D%E8%AE%BE%E7%BD%AE%E4%B8%BA%E3%80%90Enabled%E3%80%91"><span class="nav-text">1. 在Serv00 Panel 如下图确保设置为【Enabled】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9C%A8Serv00-Panel-%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%B7%BB%E5%8A%A0%E4%B8%A4%E4%B8%AA%E7%AB%AF%E5%8F%A3%E4%BE%8B%E5%A6%82%EF%BC%9A%E3%80%90%E7%AB%AF%E5%8F%A31%E3%80%91%E3%80%90%E7%AB%AF%E5%8F%A32-RPC%E7%AB%AF%E5%8F%A3-%E3%80%91"><span class="nav-text">2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E5%9F%9F%E5%90%8DDNS-%E8%A7%A3%E6%9E%90%E4%B8%BA-Serv00-IP-%E5%9C%B0%E5%9D%80"><span class="nav-text">3. 添加自己域名DNS 解析为 Serv00 IP 地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86%E9%A1%B5%EF%BC%8C%E6%B7%BB%E5%8A%A0DNS%E8%A7%A3%E6%9E%90%EF%BC%8C%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%98%AFCF%E7%95%8C%E9%9D%A2"><span class="nav-text">在自己的域名管理页，添加DNS解析，如下图是CF界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9C%A8Serv00-Panel-%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%B7%BB%E5%8A%A0%E4%B8%8A%E9%9D%A2%E5%9F%9F%E5%90%8D-%E3%80%90%E4%BB%BB%E6%84%8F%E5%86%99-%E5%A1%ABserv00%E7%9A%84ip%E5%9C%B0%E5%9D%80%E3%80%91"><span class="nav-text">4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%BF%9E%E6%8E%A5Serv00-ssh-%E5%AE%89%E8%A3%85-go%E3%80%81pm2"><span class="nav-text">5. 连接Serv00 ssh 安装 go、pm2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%AE%89%E8%A3%85nezha%E9%9D%A2%E6%9D%BF%E5%B9%B6%E6%B7%BB%E5%8A%A0%E7%9B%91%E6%8E%A7"><span class="nav-text">6. 安装nezha面板并添加监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nezha-Agent-%E7%9B%91%E6%8E%A7Serv00"><span class="nav-text">安装nezha-Agent 监控Serv00</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90"><span class="nav-text">大功告成</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/header-shrink.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/back2top.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/toggle-theme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/code-block.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/libs/anime.min.js"></script>
+
+<!-- local search -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/local-search.min.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/lazyload.min.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/post/post-helper.min.js"></script>
+
+        <!-- toc -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/post/toc.min.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/post/copyright-info.min.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/post/share.min.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-keep/4.2.2/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

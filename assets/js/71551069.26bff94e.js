@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksicko=self.webpackChunksicko||[]).push([[1056],{4634:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/weekly","page":1,"postsPerPage":10,"totalPages":3,"totalCount":22,"nextPage":"/blog/tags/weekly/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);
