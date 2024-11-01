@@ -1,95 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>用Serv00搭建哪吒面板</title>
-    <url>/2024/09/09/Serv00-Nezha/</url>
-    <content><![CDATA[<h2 id="需要条件"><a href="#需要条件" class="headerlink" title="需要条件"></a>需要条件</h2><ol>
-<li>有自己的域名</li>
-<li>能连接serv00 ssh</li>
-<li>github 创建 OAuth应用</li>
-<li>跟着教程复制粘贴，成功率99</li>
-</ol>
-<h2 id="github-创建OAuth应用"><a href="#github-创建OAuth应用" class="headerlink" title="github 创建OAuth应用"></a>github 创建OAuth应用</h2><p><a class="link"   href="https://nezha.wiki/guide/dashboard.html#%E8%8E%B7%E5%8F%96-github-%E7%9A%84-client-id-%E5%92%8C%E5%AF%86%E9%92%A5" >参考哪吒官方github获取client ID和client secret教程<i class="fas fa-external-link-alt"></i></a></p>
-<h1 id="Serv00-配置"><a href="#Serv00-配置" class="headerlink" title="Serv00 配置"></a>Serv00 配置</h1><h2 id="1-在Serv00-Panel-如下图确保设置为【Enabled】"><a href="#1-在Serv00-Panel-如下图确保设置为【Enabled】" class="headerlink" title="1. 在Serv00 Panel 如下图确保设置为【Enabled】"></a>1. 在Serv00 Panel 如下图确保设置为【Enabled】</h2><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004430.png"
-                        alt="z"
-                 ></p>
-<h2 id="2-在Serv00-Panel-如下图添加两个端口例如：【端口1】【端口2-RPC端口-】"><a href="#2-在Serv00-Panel-如下图添加两个端口例如：【端口1】【端口2-RPC端口-】" class="headerlink" title="2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】"></a>2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】</h2><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004528.png"
-                        alt="xc"
-                 ></p>
-<h2 id="3-添加自己域名DNS-解析为-Serv00-IP-地址"><a href="#3-添加自己域名DNS-解析为-Serv00-IP-地址" class="headerlink" title="3. 添加自己域名DNS 解析为 Serv00 IP 地址"></a>3. 添加自己域名DNS 解析为 Serv00 IP 地址</h2><p>在Serv00 Panel 如下图查看Serv00 IP 地址<br><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004544.png"
-                        alt="cc"
-                 ><br><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004554.png"
-                        alt="cd"
-                 ></p>
-<h3 id="在自己的域名管理页，添加DNS解析，如下图是CF界面"><a href="#在自己的域名管理页，添加DNS解析，如下图是CF界面" class="headerlink" title="在自己的域名管理页，添加DNS解析，如下图是CF界面"></a>在自己的域名管理页，添加DNS解析，如下图是CF界面</h3><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004607.png"
-                        alt="csd"
-                 ></p>
-<h2 id="4-在Serv00-Panel-如下图添加上面域名-【任意写-填serv00的ip地址】"><a href="#4-在Serv00-Panel-如下图添加上面域名-【任意写-填serv00的ip地址】" class="headerlink" title="4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】"></a>4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】</h2><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004616.png"
-                        alt="cas"
-                 ><br><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004624.png"
-                        alt="zxc"
-                 ></p>
-<h2 id="5-连接Serv00-ssh-安装-go、pm2"><a href="#5-连接Serv00-ssh-安装-go、pm2" class="headerlink" title="5. 连接Serv00 ssh 安装 go、pm2"></a>5. 连接Serv00 ssh 安装 go、pm2</h2><p>以下脚本、代码均来源：<a class="link"   href="https://github.com/k0baya" >k0baya<i class="fas fa-external-link-alt"></i></a><br>安装PM2:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)</span><br></pre></td></tr></table></figure>
-
-<p>安装GO：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建安装目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/local/soft &amp;&amp; <span class="built_in">cd</span> ~/local/soft</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载编译好的 go1.22 的程序包</span></span><br><span class="line">wget https://dl.google.com/go/go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除压缩文件</span></span><br><span class="line"><span class="built_in">rm</span> go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 .profile 文件</span></span><br><span class="line"><span class="built_in">echo</span> ‘<span class="built_in">export</span> PATH=~/local/soft/go/bin:<span class="variable">$PATH</span>’ &gt;&gt; ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使 .profile 的修改生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 go 版本</span></span><br><span class="line">go version</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-安装nezha面板并添加监控"><a href="#6-安装nezha面板并添加监控" class="headerlink" title="6. 安装nezha面板并添加监控"></a>6. 安装nezha面板并添加监控</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/nezha4serv00/main/install-dashboard.sh)</span><br></pre></td></tr></table></figure>
-
-<p>按照提示输入：【注】Panel面板端口填写端口1; RPC端口填写端口2<br>准备好之后，回车即可，进入域名网页登录<br>github登录面板</p>
-<ol>
-<li>右上角【用户名】-【管理后台】-【设置】-【未接入CDN的面板服务器域名&#x2F;IP】填入自己的域名</li>
-<li>【管理后台】- 【服务器】- 【新增服务器】- 【一键添加监控】</li>
-</ol>
-<h2 id="安装nezha-Agent-监控Serv00"><a href="#安装nezha-Agent-监控Serv00" class="headerlink" title="安装nezha-Agent 监控Serv00"></a>安装nezha-Agent 监控Serv00</h2><p><strong>按文字提示输入域名、端口2(RPC端口)、刚复制的密钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/nezha4serv00/main/install-agent.sh)</span><br></pre></td></tr></table></figure>
-
-<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p><img  
-                       lazyload
-                       alt="image"
-                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004634.png"
-                        alt="zxczxc"
-                 ><br><strong>失败了，不想干了，用下面卸载命令</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除面板</span></span><br><span class="line"><span class="built_in">rm</span> rf ~/.nezha-dashboard</span><br><span class="line"><span class="comment"># 删除agent</span></span><br><span class="line"><span class="built_in">rm</span> -rf ~/.nezha-agent </span><br><span class="line"><span class="comment"># 功德+1</span></span><br><span class="line">killall -u $(<span class="built_in">whoami</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>vps</category>
-      </categories>
-      <tags>
-        <tag>Serv00</tag>
-        <tag>哪吒</tag>
-        <tag>nezha</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>十月日本大阪旅游</title>
     <url>/2024/10/31/japan-Osaka/</url>
     <content><![CDATA[<p>由于hexo的admonition插件并不如意，有些地方观感不好！</p>
 <h2 id="出行-预备"><a href="#出行-预备" class="headerlink" title="出行-预备"></a>出行-预备</h2><p>在八九月份里，尝试过抢香港航空、香港快运0元机票(内含几百的税费) 然而全部失败告终</p>
 <p>香港飞日本的好处是直飞，但是价格我认为并不那么美丽，廉航没托运行李额度，没餐食，综合对比，差几百国内就有大的行李托运额，还是国内出发从山东或者上海转机合适</p>
 <p>综合对比之下，选择了”智行“app，app上到手1300来回(确认了是真实票，不是积分里程票，避免扯皮)，不过后来发现抖音各大航司直播间有999来回套票(不含燃油和税费，深究后发现此类次卡，如果运气不佳会碰到很多麻烦，航班难约、日子不凑巧)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">collapse: open</span><br><span class="line">title:出行出行，就是衣食住行</span><br><span class="line"></span><br><span class="line">- 买三井住友的出行保险(航班延误有赔偿嘻嘻)</span><br><span class="line">- 交通：Apple Wallet里充值了7000日币，后续补充了2k，实际可能要1w日币才够(云闪付有时候会搞充值suica卡减免优惠)</span><br><span class="line">- 带了2W日元现金</span><br><span class="line">- 住在天王寺</span><br><span class="line">- 靠谷歌地图4.0-4.5评分挑选餐厅，吃饭参考小红书极大概率踩雷 跟着我吃也行~</span><br><span class="line">- 出门要带护照</span><br></pre></td></tr></table></figure>
+<p><strong>出行出行，就是衣食住行</strong></p>
+<ul>
+<li>买三井住友的出行保险(航班延误有赔偿嘻嘻)</li>
+<li>交通：Apple Wallet里充值了7000日币，后续补充了2k，实际可能要1w日币才够(云闪付有时候会搞充值suica卡减免优惠)</li>
+<li>带了2W日元现金</li>
+<li>住在天王寺</li>
+<li>靠谷歌地图4.0-4.5评分挑选餐厅，吃饭参考小红书极大概率踩雷 跟着我吃也行~</li>
+<li>出门要带护照</li>
+</ul>
 <h2 id="羊毛-加更"><a href="#羊毛-加更" class="headerlink" title="羊毛(加更)"></a>羊毛(加更)</h2><p>关于去之前，可是整理了很多羊毛，有需自取（注意时效）</p>
 <ul>
 <li>微信搜索“全球支付优惠” 领取汇率周卡，落地日本去便利店刷满6笔达最佳汇率</li>
@@ -110,8 +36,14 @@
 <p>它们的交通类app：换乘案内什么的可以试试，谷歌地图很哑巴的设计，就是让你哑巴，地下导航到处飞，最后不要过多担心交通，绕两遍就能熟悉了</p>
 <p>不要租LUUP电动滑板，警察看到一个拦一个，拦下就是开罚款</p>
 <h2 id="住"><a href="#住" class="headerlink" title="住"></a>住</h2><p><strong>出行前带多少行李，完全看个人计划</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title:住哪怎么选？</span><br><span class="line">collapse:close</span><br><span class="line">住哪都是你的自由，日本街道划分挺详细，不过为安全着想，请住在日本本地人或者外国白人多的地方</span><br><span class="line"></span><br><span class="line">1.切记得小红书搜搜你心仪的酒店所处什么街道是不是红灯区？</span><br><span class="line"></span><br><span class="line">2.是不是游客扎堆、东南亚、印度阿三、越南猴子聚集的地方（脏乱差代表，又吵又臭，床有床虱）</span><br><span class="line"></span><br><span class="line">3.能选酒店就选酒店，尽量选新建的，最好跟酒店发一个确认邮件(agoda) 不要选择先体验后付款</span><br><span class="line"></span><br><span class="line">4.酒店如果自助洗衣机不够干净，可以去外面自助洗衣房，不过我的贴身衣物都是旧衣服穿完就丢，只用过一次洗衣机洗裤子</span><br><span class="line"></span><br><span class="line">选酒店还有一个指标，看附近超市是什么？是业务超市扎堆还是低消超市（大阪玉出超市代表），如果附近有一个life超市，那这个地段不错</span><br><span class="line"></span><br><span class="line">关于住确实没啥好说，不贪小便宜、不去游客重灾区基本上没啥雷，旅行我都会带一次性床单（日本当地超市不一定有卖）</span><br><span class="line"></span><br><span class="line">另外就是如果不是长期旅游，没必要一个地方新订一个酒店，日本它地方小，营业时间也十分散漫，对行李箱多的人不友好</span><br></pre></td></tr></table></figure>
-
+<p><strong>住哪怎么选？</strong><br>住哪都是你的自由，日本街道划分挺详细，不过为安全着想，请住在日本本地人或者外国白人多的地方</p>
+<p>1.切记得小红书搜搜你心仪的酒店所处什么街道是不是红灯区？</p>
+<p>2.是不是游客扎堆、东南亚、印度阿三、越南猴子聚集的地方（脏乱差代表，又吵又臭，床有床虱）</p>
+<p>3.能选酒店就选酒店，尽量选新建的，最好跟酒店发一个确认邮件(agoda) 不要选择先体验后付款</p>
+<p>4.酒店如果自助洗衣机不够干净，可以去外面自助洗衣房，不过我的贴身衣物都是旧衣服穿完就丢，只用过一次洗衣机洗裤子</p>
+<p>选酒店还有一个指标，看附近超市是什么？是业务超市扎堆还是低消超市（大阪玉出超市代表），如果附近有一个life超市，那这个地段不错</p>
+<p>关于住确实没啥好说，不贪小便宜、不去游客重灾区基本上没啥雷，旅行我都会带一次性床单（日本当地超市不一定有卖）</p>
+<p>另外就是如果不是长期旅游，没必要一个地方新订一个酒店，日本它地方小，营业时间也十分散漫，对行李箱多的人不友好</p>
 <h3 id="出行-购物"><a href="#出行-购物" class="headerlink" title="出行&amp;购物"></a>出行&amp;购物</h3><p>出门背包，带上护照（购物免税）</p>
 <p>1L矿泉水足够一天，晚上八九点去life超市打野（乐趣多多）</p>
 <p><strong>地点：</strong></p>
@@ -203,6 +135,88 @@
         <tag>Osaka</tag>
         <tag>日本</tag>
         <tag>大阪</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用Serv00搭建哪吒面板</title>
+    <url>/2024/09/09/Serv00-Nezha/</url>
+    <content><![CDATA[<h2 id="需要条件"><a href="#需要条件" class="headerlink" title="需要条件"></a>需要条件</h2><ol>
+<li>有自己的域名</li>
+<li>能连接serv00 ssh</li>
+<li>github 创建 OAuth应用</li>
+<li>跟着教程复制粘贴，成功率99</li>
+</ol>
+<h2 id="github-创建OAuth应用"><a href="#github-创建OAuth应用" class="headerlink" title="github 创建OAuth应用"></a>github 创建OAuth应用</h2><p><a class="link"   href="https://nezha.wiki/guide/dashboard.html#%E8%8E%B7%E5%8F%96-github-%E7%9A%84-client-id-%E5%92%8C%E5%AF%86%E9%92%A5" >参考哪吒官方github获取client ID和client secret教程<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="Serv00-配置"><a href="#Serv00-配置" class="headerlink" title="Serv00 配置"></a>Serv00 配置</h1><h2 id="1-在Serv00-Panel-如下图确保设置为【Enabled】"><a href="#1-在Serv00-Panel-如下图确保设置为【Enabled】" class="headerlink" title="1. 在Serv00 Panel 如下图确保设置为【Enabled】"></a>1. 在Serv00 Panel 如下图确保设置为【Enabled】</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004430.png"
+                        alt="z"
+                 ></p>
+<h2 id="2-在Serv00-Panel-如下图添加两个端口例如：【端口1】【端口2-RPC端口-】"><a href="#2-在Serv00-Panel-如下图添加两个端口例如：【端口1】【端口2-RPC端口-】" class="headerlink" title="2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】"></a>2. 在Serv00 Panel 如下图添加两个端口例如：【端口1】【端口2(RPC端口)】</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004528.png"
+                        alt="xc"
+                 ></p>
+<h2 id="3-添加自己域名DNS-解析为-Serv00-IP-地址"><a href="#3-添加自己域名DNS-解析为-Serv00-IP-地址" class="headerlink" title="3. 添加自己域名DNS 解析为 Serv00 IP 地址"></a>3. 添加自己域名DNS 解析为 Serv00 IP 地址</h2><p>在Serv00 Panel 如下图查看Serv00 IP 地址<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004544.png"
+                        alt="cc"
+                 ><br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004554.png"
+                        alt="cd"
+                 ></p>
+<h3 id="在自己的域名管理页，添加DNS解析，如下图是CF界面"><a href="#在自己的域名管理页，添加DNS解析，如下图是CF界面" class="headerlink" title="在自己的域名管理页，添加DNS解析，如下图是CF界面"></a>在自己的域名管理页，添加DNS解析，如下图是CF界面</h3><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004607.png"
+                        alt="csd"
+                 ></p>
+<h2 id="4-在Serv00-Panel-如下图添加上面域名-【任意写-填serv00的ip地址】"><a href="#4-在Serv00-Panel-如下图添加上面域名-【任意写-填serv00的ip地址】" class="headerlink" title="4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】"></a>4. 在Serv00 Panel 如下图添加上面域名:【任意写.填serv00的ip地址】</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004616.png"
+                        alt="cas"
+                 ><br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004624.png"
+                        alt="zxc"
+                 ></p>
+<h2 id="5-连接Serv00-ssh-安装-go、pm2"><a href="#5-连接Serv00-ssh-安装-go、pm2" class="headerlink" title="5. 连接Serv00 ssh 安装 go、pm2"></a>5. 连接Serv00 ssh 安装 go、pm2</h2><p>以下脚本、代码均来源：<a class="link"   href="https://github.com/k0baya" >k0baya<i class="fas fa-external-link-alt"></i></a><br>安装PM2:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)</span><br></pre></td></tr></table></figure>
+
+<p>安装GO：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建安装目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/local/soft &amp;&amp; <span class="built_in">cd</span> ~/local/soft</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载编译好的 go1.22 的程序包</span></span><br><span class="line">wget https://dl.google.com/go/go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除压缩文件</span></span><br><span class="line"><span class="built_in">rm</span> go1.22.0.freebsd-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 .profile 文件</span></span><br><span class="line"><span class="built_in">echo</span> ‘<span class="built_in">export</span> PATH=~/local/soft/go/bin:<span class="variable">$PATH</span>’ &gt;&gt; ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使 .profile 的修改生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 go 版本</span></span><br><span class="line">go version</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-安装nezha面板并添加监控"><a href="#6-安装nezha面板并添加监控" class="headerlink" title="6. 安装nezha面板并添加监控"></a>6. 安装nezha面板并添加监控</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/nezha4serv00/main/install-dashboard.sh)</span><br></pre></td></tr></table></figure>
+
+<p>按照提示输入：【注】Panel面板端口填写端口1; RPC端口填写端口2<br>准备好之后，回车即可，进入域名网页登录<br>github登录面板</p>
+<ol>
+<li>右上角【用户名】-【管理后台】-【设置】-【未接入CDN的面板服务器域名&#x2F;IP】填入自己的域名</li>
+<li>【管理后台】- 【服务器】- 【新增服务器】- 【一键添加监控】</li>
+</ol>
+<h2 id="安装nezha-Agent-监控Serv00"><a href="#安装nezha-Agent-监控Serv00" class="headerlink" title="安装nezha-Agent 监控Serv00"></a>安装nezha-Agent 监控Serv00</h2><p><strong>按文字提示输入域名、端口2(RPC端口)、刚复制的密钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/nezha4serv00/main/install-agent.sh)</span><br></pre></td></tr></table></figure>
+
+<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20240909004634.png"
+                        alt="zxczxc"
+                 ><br><strong>失败了，不想干了，用下面卸载命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除面板</span></span><br><span class="line"><span class="built_in">rm</span> rf ~/.nezha-dashboard</span><br><span class="line"><span class="comment"># 删除agent</span></span><br><span class="line"><span class="built_in">rm</span> -rf ~/.nezha-agent </span><br><span class="line"><span class="comment"># 功德+1</span></span><br><span class="line">killall -u $(<span class="built_in">whoami</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>vps</category>
+      </categories>
+      <tags>
+        <tag>Serv00</tag>
+        <tag>哪吒</tag>
+        <tag>nezha</tag>
       </tags>
   </entry>
 </search>
