@@ -236,4 +236,53 @@
         <tag>大阪</tag>
       </tags>
   </entry>
+  <entry>
+    <title>学会用uv工具管理python版本、包依赖-入门教程</title>
+    <url>/2025/02/21/uv-python/</url>
+    <content><![CDATA[<ul>
+<li><a class="link"   href="https://docs.astral.sh/uv/getting-started/installation/" >uv官网<i class="fas fa-external-link-alt"></i></a><br>uv是管理包依赖、管理Python版本的一个工具</li>
+</ul>
+<p>实践之后才决定选择uv替代conda等其他工具，实在是快、狠、准</p>
+<p>本次教程比较匆忙，废话不多说，只点到为止</p>
+<h2 id="安装-Installation"><a href="#安装-Installation" class="headerlink" title="安装-Installation"></a>安装-Installation</h2><p>根据官网教程来安装uv，OP电脑没有安装Python，有安装的佬友用pipx（隔离环境）、pip（直接pip都行） <code>pip install uv</code> or <code>pipx install uv</code></p>
+<p>打开Powershell 输入以下命令安装uv</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span><br></pre></td></tr></table></figure>
+
+<p>测试uv是否安装成功，请重新打开一个powershell窗口，输入”uv” 有显示命令提示即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">An extremely fast Python package manager.</span><br><span class="line"></span><br><span class="line">Usage: uv [OPTIONS] &lt;COMMAND&gt;</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  run      Run a command or script</span><br><span class="line">  init     Create a new project</span><br><span class="line">  add      Add dependencies to the project</span><br><span class="line">  remove   Remove dependencies from the project</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Python-Installing-Python"><a href="#安装Python-Installing-Python" class="headerlink" title="安装Python-Installing Python"></a>安装Python-Installing Python</h3><p>安装 python 安装好后会显示安装路径<br>例：C:\users\xxx\AppData\Roaming\uv\python\cpython-xx-none [文件夹里的python.exe即可执行]</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">没有指定数字 就是默认最新版本</span></span><br><span class="line">uv python install</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定3.12版本python</span></span><br><span class="line">uv python install 3.12</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出uv管理的python列表</span></span><br><span class="line">uv python list</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="在pycharm中使用uv"><a href="#在pycharm中使用uv" class="headerlink" title="在pycharm中使用uv"></a>在pycharm中使用uv</h2><h3 id="新项目配置uv"><a href="#新项目配置uv" class="headerlink" title="新项目配置uv"></a>新项目配置uv</h3><p>在pycharm中新建项目-选择下图的Custom environment -选择uv即可 [缺失python环境根据上面的路径选择python.exe即可]<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20250221202823.png"
+                        alt="x"
+                 ></p>
+<p>新建之后项目会出现 .env文件夹 pyproject.toml，相当于pycharm帮你完成 <code>uv init xx项目名</code> 初始化项目步骤</p>
+<h3 id="老项目配置uv"><a href="#老项目配置uv" class="headerlink" title="老项目配置uv"></a>老项目配置uv</h3><p>设置 - Add Python Interpreter 如下图即可<br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20250221204628.png"
+                        alt="x"
+                 ></p>
+<h3 id="管理依赖"><a href="#管理依赖" class="headerlink" title="管理依赖"></a>管理依赖</h3><p>常规库直接如图点击添加 pycharm替你完成了 <code>uv add fastapi</code><br><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://raw.githubusercontent.com/googidaddy/img/master/2023/20250221204934.png"
+                        alt="x"
+                 ></p>
+<h2 id="短暂总结"><a href="#短暂总结" class="headerlink" title="短暂总结"></a>短暂总结</h2><p>当前内容为入门小章节，省去大幅复制粘贴命令等无用内容，让大家“奴役”工具<br>有空内容会持续更新…</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>uv</tag>
+        <tag>python</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
 </search>
